@@ -20,15 +20,25 @@ const Trending = () => {
 
 
     useEffect(async ()=>{
-        const response = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false&price_change_percentage=24h");
+        const response = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h");
         const data = await response.json();
         setCoins(data);
 
     },[]);
 
-    const coin1 = [coins[0],coins[1],coins[2]];
-    const coin2 = [coins[3],coins[4],coins[5]];
-    const coin3 = [coins[6],coins[7],coins[8]];
+    const test =coins.filter(coin => coin.price_change_percentage_24h > 1 );
+    
+    const coin1 = [coins[Math.floor(Math.random() * 100)],coins[Math.floor(Math.random() * 100)],coins[Math.floor(Math.random() * 100)]];
+    let coin2
+    if(test.length===3){
+        coin2 = [test[0],test[1],test[2]];
+    }else{
+        coin2 = [coins[0],coins[1],coins[3]]
+    }
+    const coin3 = [coins[16],coins[17],coins[18]];
+
+  
+
   return (
     <div className='text-white'>
         <div className={styles.trendingWrapper}>
