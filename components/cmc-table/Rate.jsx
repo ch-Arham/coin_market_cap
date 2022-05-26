@@ -8,11 +8,11 @@ const styles = {
     red: 'ml-2 text-[#EA3943]',
 }
 
-const Rate = ({isIncrement,rate}) => {
+const Rate = ({rate}) => {
   return (
     <div className={styles.rate}>
-        {isIncrement ? <ChevronUp fill="#17C784" /> : <ChevronDown fill="#EA3943" />}
-        <p className={isIncrement ? styles.green : styles.red}>{rate}</p>
+        {rate>0 ? <ChevronUp fill="#17C784" /> : <ChevronDown fill="#EA3943" />}
+        <p className={rate>0 ? styles.green : styles.red}>{rate.toFixed(2)}%</p>
     </div>
   )
 }

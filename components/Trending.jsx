@@ -6,6 +6,7 @@ import gainers from "../assets/gainers.png"
 import recent from "../assets/recent.png"
 import ReactSwitch from "react-switch"
 import Rate from './cmc-table/Rate'
+import TrendingCard from './TrendingCard'
 
 const styles = {
     trendingWrapper: 'mx-10 max-w-screen-2xl',
@@ -17,13 +18,17 @@ const Trending = () => {
     const [ checked, setChecked ] = useState(false);
     const [ coins, setCoins ] = useState([]);
 
+
     useEffect(async ()=>{
         const response = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false&price_change_percentage=24h");
         const data = await response.json();
-        // const arr = data.map(coin => coin.price_change_percentage_24h);
         setCoins(data);
+
     },[]);
 
+    const coin1 = [coins[0],coins[1],coins[2]];
+    const coin2 = [coins[3],coins[4],coins[5]];
+    const coin3 = [coins[6],coins[7],coins[8]];
   return (
     <div className='text-white'>
         <div className={styles.trendingWrapper}>
@@ -39,15 +44,15 @@ const Trending = () => {
             <br />
             <div className='flex items-center'>
                 <p className='text-gray-400'>The global crypto market cap is $1.74T, a &nbsp;</p>
-                <span><Rate isIncrement={true} rate='0.53%' /></span>
+                <span><Rate rate={0.53} /></span>
                 <p className='text-gray-400'>&nbsp; decrease over the last day.<span className='underline'>Read More</span></p>
             </div>
             <br />
 
             <div className={styles.flexCenter}>
-                {/* <TrendingCard title='Trending' icon={fire} data={coins} /> */}
-                {/* <TrendingCard title='Biggest Gainers' icon={gainers} data={coins} /> */}
-                {/* <TrendingCard title='Recently Added' icon={recent} data={coins} /> */}
+                <TrendingCard title='Trending' icon={fire} data={coin1} />
+                <TrendingCard title='Biggest Gainers' icon={gainers} data={coin2} />
+                <TrendingCard title='Recently Added' icon={recent} data={coin3} />
             </div>
         </div>
     </div>

@@ -1,0 +1,15 @@
+.trendingCard{
+    width: 100%;
+    padding: 1.25rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-bottom: 0rem;
+    background-color: #323546;
+    border-radius: 0.75rem;
+    color: white;
+    margin-right: 0.75rem;
+}
+
+.trendingCard:last-child{
+    margin-right: 0;
+}
