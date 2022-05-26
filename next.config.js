@@ -6,6 +6,7 @@ module.exports = {
   },
   env: {
     NEXT_PUBLIC_SERVER: process.env.NEXT_PUBLIC_SERVER,
-    NEXT_PUBLIC_APP_ID: process.env.NEXT_PUBLIC_APP_ID
+    NEXT_PUBLIC_APP_ID: process.env.NEXT_PUBLIC_APP_ID,
+    NEXT_BACKEND_CMC_API_KEY: process.env.NEXT_BACKEND_CMC_API_KEY,
   }
 }

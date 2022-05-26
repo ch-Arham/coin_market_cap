@@ -26,18 +26,22 @@ const Trending = () => {
 
     },[]);
 
-    const test =coins.filter(coin => coin.price_change_percentage_24h > 1 );
+    const test =coins.filter(coin => coin.price_change_percentage_24h > 0 );
     
     const coin1 = [coins[Math.floor(Math.random() * 100)],coins[Math.floor(Math.random() * 100)],coins[Math.floor(Math.random() * 100)]];
     let coin2
     if(test.length===3){
         coin2 = [test[0],test[1],test[2]];
+    }else if(test.length===2){
+        coin2 = [test[0],test[1],coins[Math.floor(Math.random() * 100)]];
+    }else if(test.length===1){
+        coin2 = [test[0],coins[Math.floor(Math.random() * 100)],coins[Math.floor(Math.random() * 100)]];
     }else{
         coin2 = [coins[0],coins[1],coins[3]]
     }
     const coin3 = [coins[16],coins[17],coins[18]];
 
-  
+  console.log(coins);
 
   return (
     <div className='text-white'>
@@ -54,7 +58,7 @@ const Trending = () => {
             <br />
             <div className='flex items-center'>
                 <p className='text-gray-400'>The global crypto market cap is $1.74T, a &nbsp;</p>
-                <span><Rate rate={0.53} /></span>
+                <span><Rate rate={-0.53} /></span>
                 <p className='text-gray-400'>&nbsp; decrease over the last day.<span className='underline'>Read More</span></p>
             </div>
             <br />
