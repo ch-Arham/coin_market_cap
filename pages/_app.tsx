@@ -3,11 +3,12 @@ import type { AppProps } from 'next/app'
 import { MoralisProvider } from 'react-moralis'
 import { CoinMarketProvider } from '../context/context'
 
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <MoralisProvider 
-      serverUrl={process.env.NEXT_PUBLIC_SERVER}
-      appId={process.env.NEXT_PUBLIC_APP_ID}
+      serverUrl="https://gzrfzcg5hkeh.usemoralis.com:2053/server"
+      appId="TQUY9JGQrdBRwYekJwbrdTcwE7vmdO7ocKxGWMew"
     >
       <CoinMarketProvider>
         <Component {...pageProps} />
