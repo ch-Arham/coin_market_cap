@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import Trending from '../components/Trending'
 import CMCTable from '../components/cmc-table/CmcTable';
 
+
 const Home: NextPage = () => {
   return (
     <>
