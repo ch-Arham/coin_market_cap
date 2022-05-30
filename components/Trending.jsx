@@ -25,9 +25,14 @@ const Trending = () => {
         setCoins(data);
 
     },[]);
-
-    const test =coins.filter(coin => coin.price_change_percentage_24h > 0 );
     
+    const test0 =coins.map(coin => coin.price_change_percentage_24h );
+    const test1=test0.sort((a,b)=>b-a);
+    const test2 = coins.filter(coin => coin.price_change_percentage_24h === test1[0]);
+    const test3 = coins.filter(coin => coin.price_change_percentage_24h === test1[1]);
+    const test4 = coins.filter(coin => coin.price_change_percentage_24h === test1[2]);
+    const test=[...test2,...test3,...test4];
+
     const coin1 = [coins[Math.floor(Math.random() * 100)],coins[Math.floor(Math.random() * 100)],coins[Math.floor(Math.random() * 100)]];
     let coin2
     if(test.length===3){
@@ -41,7 +46,6 @@ const Trending = () => {
     }
     const coin3 = [coins[16],coins[17],coins[18]];
 
-  console.log(coins);
 
   return (
     <div className='text-white'>
@@ -59,7 +63,7 @@ const Trending = () => {
             <div className='flex items-center'>
                 <p className='text-gray-400'>The global crypto market cap is $1.74T, a &nbsp;</p>
                 <span><Rate rate={-0.53} /></span>
-                <p className='text-gray-400'>&nbsp; decrease over the last day.<span className='underline'>Read More</span></p>
+                <p className='text-gray-400'>&nbsp; decrease over the last day.{" "}<span className='underline'>Read More</span></p>
             </div>
             <br />
 
