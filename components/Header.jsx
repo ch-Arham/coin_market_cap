@@ -62,7 +62,7 @@ const Header = () => {
                 </div>
             </nav>
 
-            <div className='flex items-center ml-2'>
+            <div className='flex items-center px-2 mx-3'> {/* made changes here*/}
                 <ConnectButton />
                 <div className={styles.inputContainer}>
                     <Search />
