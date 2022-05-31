@@ -3,6 +3,7 @@ import solana from '../../assets/solana.png'
 import Usd from '../../assets/svg/usd'
 import Header from '../../components/Header'
 import CMCPriceConverter from '../../components/cmc-table/CMCPriceConverter'
+import Graph from '../../components/Graph'
 
 const styles = {
   activeTab: `p-1 px-2 mr-2 rounded-lg bg-[#171924] cursor-pointer`,
@@ -63,7 +64,7 @@ const info = () => {
               </div>
 
               <br />
-              {/* <Graph /> */}
+              <Graph />
               <br />
 
               <div className={styles.flexBetweenCenter}>
