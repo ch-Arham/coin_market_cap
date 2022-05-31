@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import solana from '../../assets/solana.png'
-import usd from '../../assets/svg/usd'
+import Usd from '../../assets/svg/usd'
 import Header from '../../components/Header'
+import CMCPriceConverter from '../../components/cmc-table/CMCPriceConverter'
 
 const styles = {
-  activeTab: `p-1 px-2 mr-2 rounded-lg bg-[#171924]`,
-  tabItem: `px-2`,
+  activeTab: `p-1 px-2 mr-2 rounded-lg bg-[#171924] cursor-pointer`,
+  tabItem: `px-2 cursor-pointer`,
   tabContainer: `flex items-center p-2 rounded-xl bg-[#222531] border border-gray-500/10 text-sm`,
   info: `min-h-screen`,
   main: `text-white mx-auto max-w-screen-2xl mx-10`,
@@ -68,31 +69,37 @@ const info = () => {
               <div className={styles.flexBetweenCenter}>
                 <div className="flex">
                   <div className={styles.flexCenter}>
-                    <input className="outline-none" type="checkbox" /> &nbsp;
-                    USD
+                    <input
+                      className="cursor-pointer outline-none"
+                      type="checkbox"
+                    />{' '}
+                    &nbsp; USD
                   </div>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <div className={styles.flexCenter}>
-                    <input type="checkbox" /> &nbsp; BTC
+                    <input type="checkbox" className="cursor-pointer" /> &nbsp;
+                    BTC
                   </div>
                 </div>
 
                 <p>
                   Want more data?{' '}
-                  <span className="text-[#6188FF]">Check out our API</span>
+                  <span className="cursor-pointer text-[#6188FF]">
+                    Check out our API
+                  </span>
                 </p>
               </div>
               <br />
               <br />
-              {/* <CMCpriceConverter
-              from={coinName}
-              fromSymbol={coinSymbol}
-              fromLogo={solana}
-              toLogo={<Usd />}
-              price={price}
-              to='United States Dollars'
-              toSymbol='USD'
-            /> */}
+              <CMCPriceConverter
+                from={coinName}
+                fromSymbol={coinSymbol}
+                fromLogo={solana}
+                toLogo={<Usd />}
+                price={price}
+                to='United States Dollars'
+                toSymbol='USD'
+                />
             </div>
             <div className="ml-5 pt-10">{/* <Chat /> */}</div>
           </div>
